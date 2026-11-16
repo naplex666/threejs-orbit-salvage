@@ -1,0 +1,6 @@
+import * as THREE from 'three';import {CFG} from './config.js';
+const MAT=new THREE.MeshStandardMaterial({color:0x422636,metalness:.28,roughness:.76,emissive:0x54152a,emissiveIntensity:.65});
+export function spawnDebris(scene,rng,wave,near=10){const a=rng()*Math.PI*2,r=near+rng()*23,fast=wave>2&&rng()<.36;const geo=fast?new THREE.TetrahedronGeometry(.75,0):new THREE.BoxGeometry(1.1+rng()*.5,.9+rng()*.6,1+rng()*.4);const m=new THREE.Mesh(geo,MAT);m.position.set(Math.cos(a)*r,.7+rng()*1.3,Math.sin(a)*r);m.rotation.set(rng()*3,rng()*3,rng()*3);scene.add(m);return{mesh:m,vel:new THREE.Vector3(-Math.cos(a),0,-Math.sin(a)).multiplyScalar((fast?5.1:2.5)+wave*.24+rng()*1.2),spin:new THREE.Vector3(rng()*2,rng()*2,rng()*2),radius:fast?.8:1.15,fast}}
+export function updateDebris(items,dt){for(const d of items){d.mesh.position.addScaledVector(d.vel,dt);d.mesh.rotation.x+=d.spin.x*dt;d.mesh.rotation.y+=d.spin.y*dt;d.mesh.rotation.z+=d.spin.z*dt}}
+export function pulseDebris(items,pos){const broken=[];for(let i=items.length-1;i>=0;i--){if(items[i].mesh.position.distanceTo(pos)<6.2){broken.push(items[i]);items.splice(i,1)}}return broken}
+export function clearDebris(scene,items){for(const d of items)scene.remove(d.mesh)}

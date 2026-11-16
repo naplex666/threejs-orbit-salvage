@@ -1,0 +1,1 @@
+export const CFG={arena:34,quota:1500,hull:3,maxEnergy:100,pulseCost:35,energyRate:12,playerSpeed:13,accel:27,drag:4.2,scrapEvery:2.1,debrisEvery:1.65,waveEvery:25,comboWindow:3,magnet:4.5,shieldSecs:6,overdriveSecs:8};

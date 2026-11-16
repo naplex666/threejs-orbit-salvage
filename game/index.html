@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>ORBIT SALVAGE</title>
+<link rel="stylesheet" href="./src/style.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+</head>
+<body>
+<canvas id="game"></canvas><div id="vignette"></div><div id="flash"></div>
+<div id="reticle"><i></i><b></b></div>
+<header id="hud" class="hidden">
+  <section class="brand"><span>OS / 07</span><strong>ORBIT SALVAGE</strong></section>
+  <section class="score-block"><small>CONTRACT VALUE</small><strong id="score">0000</strong><div class="quota"><i id="quota-fill"></i></div><small><span id="quota">0</span> / 1500 CR</small></section>
+  <section class="status"><div><small>HULL</small><strong id="hull">◆ ◆ ◆</strong></div><div><small>WAVE</small><strong id="wave">01</strong></div><div><small>FLIGHT TIME</small><strong id="time">00:00</strong></div></section>
+  <section class="lower-hud"><div class="energy-label"><small>PULSE CHARGE</small><strong id="energy-text">100%</strong></div><div class="energy"><i id="energy-fill"></i></div><div class="combo" id="combo">COMBO <b>x1</b></div><div class="power" id="power">SYSTEMS NOMINAL</div></section>
+  <div class="aim-label" id="aim-label">RETICLE / ACQUIRE</div>
+</header>
+<div id="banner"></div>
+<div id="screen" class="screen">
+  <div class="panel"><div class="eyebrow"><span class="signal"></span> DEEP ORBIT / RECOVERY ZONE 07</div><h1 id="screen-title">ORBIT<br><em>SALVAGE</em></h1><p id="screen-copy">The ring is breaking apart. Bring back enough light to make it home.</p><div id="screen-stats"></div>
+  <div class="controls"><span><b>W A S D</b> / ARROWS <small>THRUST</small></span><span><b>MOUSE</b> <small>AIM</small></span><span><b>CLICK</b> / <b>SPACE</b> <small>PULSE</small></span><span><b>P</b> <small>PAUSE</small></span><span><b>M</b> <small>MUTE</small></span></div><button id="launch">LAUNCH RECOVERY <span>↗</span></button><div class="best">BEST CONTRACT <b id="best">0000 CR</b></div></div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body></html>
